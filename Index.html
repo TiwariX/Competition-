@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codewithtiwariji | Strength & Power</title>
+    <style>
+        :root {
+            --primary: #ff3e3e; 
+            --bg: #050505;
+            --card-bg: #121212;
+            --text: #ffffff;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'SF Pro Display', -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+
+        /* --- Navbar --- */
+        nav {
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 8%;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(30px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--glass);
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            color: var(--text);
+            text-transform: uppercase;
+        }
+
+        .logo span { color: var(--primary); }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at 50% 50%, #1a0505 0%, #050505 100%);
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 900;
+            line-height: 0.9;
+            margin-bottom: 20px;
+            letter-spacing: -3px;
+            background: linear-gradient(to bottom, #fff 40%, #444);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #888;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* --- Info Section --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 28px;
+            padding: 40px;
+            border: 1px solid var(--glass);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 0 30px 60px rgba(255, 62, 62, 0.1);
+        }
+
+        .card h3 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: var(--primary);
+        }
+
+        .card ul { list-style: none; }
+        .card li {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--glass);
+            display: flex;
+            justify-content: space-between;
+            font-weight: 500;
+        }
+
+        /* --- Registration Form --- */
+        .reg-section {
+            background: #0a0a0a;
+            padding: 100px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .reg-box {
+            width: 100%;
+            max-width: 550px;
+            background: var(--card-bg);
+            padding: 50px;
+            border-radius: 40px;
+            border: 1px solid var(--glass);
+        }
+
+        .input-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 10px; color: #aaa; font-size: 0.9rem; }
+        input, select {
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid #222;
+            background: #000;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+        input:focus { border-color: var(--primary); }
+
+        .btn-pay {
+            width: 100%;
+            padding: 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            margin-top: 20px;
+            transition: 0.4s;
+        }
+
+        .btn-pay:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 62, 62, 0.4);
+        }
+
+        /* --- Reveal Animation --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            color: #444;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">CodeWith<span>Tiwariji</span></div>
+        <div style="font-size: 0.8rem; border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px;">EST. 2026</div>
+    </nav>
+
+    <section class="hero">
+        <h1 class="reveal">STRONGER<br>EVERY DAY.</h1>
+        <p class="reveal">Powerlifting • Arm Wrestling • Bodybuilding</p>
+    </section>
+
+    <div class="container">
+        <div class="card reveal">
+            <h3>Powerlifting</h3>
+            <ul>
+                <li>Back Squat <span>🏋️</span></li>
+                <li>Bench Press <span>💪</span></li>
+                <li>Deadlift <span>💀</span></li>
+            </ul>
+        </div>
+        <div class="card reveal">
+            <h3>Arm Wrestling</h3>
+            <ul>
+                <li>Top Roll <span>🌀</span></li>
+                <li>Hook <span>🪝</span></li>
+                <li>Hammer Curls <span>🔨</span></li>
+            </ul>
+        </div>
+        <div class="card reveal">
+            <h3>Biceps King</h3>
+            <ul>
+                <li>Preacher Curls <span>🔥</span></li>
+                <li>Concentration <span>🎯</span></li>
+                <li>Spider Curls <span>🕷️</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="reg-section">
+        <div class="reg-box reveal">
+            <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Register</h2>
+            <p style="color: #666; margin-bottom: 30px;">Registration fee is only ₹10</p>
+            
+            <form id="tiwariForm">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" id="name" placeholder="Himanshu Tiwari" required>
+                </div>
+                <div class="input-group" style="display: flex; gap: 15px;">
+                    <div style="flex: 1;">
+                        <label>Weight (kg)</label>
+                        <input type="number" id="weight" placeholder="75" required>
+                    </div>
+                    <div style="flex: 1;">
+                        <label>Category</label>
+                        <select id="category">
+                            <option>Lightweight</option>
+                            <option>Middleweight</option>
+                            <option>Heavyweight</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Choose Event</label>
+                    <select id="event">
+                        <option>Powerlifting Meet</option>
+                        <option>Arm Wrestling Battle</option>
+                        <option>Max Bicep Curl</option>
+                    </select>
+                </div>
+                
+                <button type="button" class="btn-pay" onclick="startPayment()">Pay ₹10 & Register</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>Created by <b>Himanshu Tiwari</b> | &copy; 2026 TiwariX Web Solutions</p>
+    </footer>
+
+    <script>
+        // Scroll Animation logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Payment & Registration logic
+        function startPayment() {
+            const name = document.getElementById('name').value;
+            const weight = document.getElementById('weight').value;
+            const event = document.getElementById('event').value;
+
+            if(!name || !weight) {
+                alert("Bhai pehle details bharo!");
+                return;
+            }
+
+            // Your Specific UPI Data
+            const upiId = "9453983879@apl";
+            const amount = "10";
+            const note = `Reg_${name}_${event}`;
+
+            const upiUrl = `upi://pay?pa=${upiId}&pn=Himanshu%20Tiwari&am=${amount}&cu=INR&tn=${encodeURIComponent(note)}`;
+
+            // Open Payment App
+            window.location.href = upiUrl;
+
+            // WhatsApp Notification after payment attempt
+            setTimeout(() => {
+                const msg = `Jai Hind Bhai! \nMaine registration form bhar diya hai. \nName: ${name} \nWeight: ${weight}kg \nEvent: ${event} \nPayment: ₹10 Done.`;
+                window.open(`https://wa.me/919453983879?text=${encodeURIComponent(msg)}`, '_blank');
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
